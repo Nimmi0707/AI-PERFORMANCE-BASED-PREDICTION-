@@ -1,4 +1,3 @@
-
 # 📊 AI Employee Performance Analytics & Prediction Platform
 
 > **An enterprise-grade platform leveraging Machine Learning models (Random Forest & XGBoost) to analyze workforce metrics, predict employee performance, and optimize HR decision-making.**
@@ -67,5 +66,3 @@ bun dev
 npm run dev
 Open http://localhost:3000 in your browser.
 
-👤 Author
-Nimmi - GitHub Profile
