@@ -1,24 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, ArrowUpRight, Users, Target, TrendingUp, BrainCircuit, ChartNoAxesCombined, Cpu, Network, FileStack, Check, ShieldCheck, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Metric, ResearchNote, headMetadata } from '@/components/platform';
+import { OverviewCharts } from '@/components/analytics-charts';
+import neuralNetwork from '@/assets/neural-network.jpg';
+export const Route = createFileRoute('/')({ head: () => headMetadata('Platform Overview', 'AI-powered workforce intelligence, explainable performance evaluation, and enterprise analytics research.'), component: Index });
+const features = [
+ {to:'/analytics',icon:ChartNoAxesCombined,title:'Executive Analytics',text:'A unified view of workforce trends, engagement, and department performance.',action:'Explore analytics',tone:'cyan'},
+ {to:'/engine',icon:Cpu,title:'Performance Engine',text:'Multi-factor employee evaluation with instant scoring and confidence insights.',action:'Run an evaluation',tone:'violet'},
+ {to:'/insights',icon:Network,title:'Algorithm Insights',text:'Transparent model comparisons, feature importance, and explainable results.',action:'Explore the model',tone:'purple'},
+ {to:'/bulk',icon:FileStack,title:'Bulk Processing',text:'From raw employee data to actionable insights. Process entire teams at once.',action:'Process a dataset',tone:'green'},
+] as const;
+function Index(){return <div className="animated-enter"><section className="hero"><img className="hero-image" src={neuralNetwork} alt="Luminous interconnected AI neural network" width={1536} height={1024}/><div className="hero-content"><div className="hero-tag"><Sparkles size={11}/> INTELLIGENCE THAT PUTS PEOPLE FIRST</div><h1>AI-Employee<br/><span className="gradient-text">Performance Analytics</span></h1><p>Understand your workforce. Unlock their potential.<br/>Turn employee data into meaningful intelligence with transparent, AI-driven performance analytics.</p><div className="hero-buttons"><Button asChild><Link to="/analytics">Explore Analytics <ArrowRight/></Link></Button><Button asChild variant="outline"><Link to="/engine"><Cpu/> Try Performance Engine</Link></Button></div><div className="hero-proof"><span><Check/> Explainable AI</span><span><Check/> Real-time evaluation</span><span><Check/> Privacy-first</span></div></div><div className="hero-annotation"><strong>CONNECTED INTELLIGENCE</strong>DATA → INSIGHT → IMPACT</div></section>
+<div className="section-intro"><div><h2>Your workforce, at a glance</h2><p>A real-time perspective on the people powering your organization.</p></div><Link to="/analytics">View full analytics <ArrowUpRight/></Link></div><div className="metric-grid"><Metric label="Total Employees" value="1,248" change="12.8%" icon={<Users/>}/><Metric label="Avg. Performance" value="87.6%" change="4.2%" icon={<TrendingUp/>} tone="violet"/><Metric label="High Performers" value="342" change="8.5%" icon={<Target/>} tone="purple"/><Metric label="Model Accuracy" value="94.8%" change="2.1%" icon={<BrainCircuit/>} tone="green"/></div>
+<div className="section-intro"><div><h2>One platform. Deeper understanding.</h2><p>Purpose-built tools for data-driven people decisions.</p></div><span className="demo-badge">4 CONNECTED MODULES</span></div><div className="feature-grid">{features.map((f,i)=><Link to={f.to} className={`glass-card feature-card tone-${f.tone}`} key={f.to}><span className="feature-number">0{i+1}</span><div className="feature-icon"><f.icon size={20}/></div><h3>{f.title}</h3><p>{f.text}</p><div className="feature-link">{f.action}<ArrowRight/></div></Link>)}</div>
+<OverviewCharts/><div className="info-band"><div><ShieldCheck size={24}/><div><h3>Built for transparency. Designed for people.</h3><p>Explainable results, interpretable features, and a human-centered approach to workforce intelligence.</p></div></div><span>M.TECH RESEARCH PLATFORM</span></div><ResearchNote/></div>}
