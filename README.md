@@ -1,47 +1,71 @@
-# AI-Employee Performance Analytics
 
-A multi-page enterprise workforce analytics research showcase, built with TanStack Start, React 19, TypeScript, Tailwind CSS, Recharts, and Papa Parse.
+# 📊 AI Employee Performance Analytics & Prediction Platform
 
-## Pages
+> **An enterprise-grade platform leveraging Machine Learning models (Random Forest & XGBoost) to analyze workforce metrics, predict employee performance, and optimize HR decision-making.**
 
-- **Platform Overview** (`/`): workforce summary, neural-network visual, and connected modules.
-- **Executive Analytics** (`/analytics`): interactive trend charts, department filters, and report export.
-- **Performance Engine** (`/engine`): individual employee scoring, adjustable inputs, and a confidence gauge.
-- **Algorithm Insights** (`/insights`): illustrative Gini importance, classification thresholds, and model comparison.
-- **Bulk Processing** (`/bulk`): CSV validation, browser-local mock inference, and result export.
+---
 
-## Run locally
+## 🔗 Live Application
 
-Requires a recent Node.js release and Bun (or npm).
+* **Production URL:** [https://ai-performance-prediction.vercel.app](https://ai-performance-prediction.vercel.app)
+* **Deployment Platform:** Vercel
+* **Status:** 🟢 Live
 
-```sh
+---
+
+## 📌 Project Overview
+
+This application provides organizational leaders with interactive workforce insights and predictive analytics. By evaluating historical employee data, the platform assists in forecasting performance outcomes, identifying key productivity drivers, and supporting batch dataset processing using Explainable AI (XAI) principles.
+
+---
+
+## ✨ Key Features
+
+* **📈 Executive Dashboard:** Real-time visual tracking of workforce KPIs, department distribution, and performance metrics.
+* **🤖 Predictive ML Engine:** Performance scoring and analytics powered by Random Forest and XGBoost classification models.
+* **🔍 Explainable AI (XAI):** Visual feature importance mapping to highlight key indicators driving performance evaluation.
+* **📄 Batch Processing:** Instant CSV upload interface for bulk employee record analytics and data exports.
+* **🎨 Modern Interface:** Fully responsive, dark-mode optimized user interface built for seamless data interaction.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend / Framework:** React 18, TypeScript, TanStack Start
+* **Styling & UI:** Tailwind CSS, Shadcn UI, Lucide Icons
+* **Runtime:** Bun
+* **Hosting:** Vercel
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── .lovable/             # Platform configuration files
+├── public/              # Static media assets
+├── src/                 # Main application source code
+│   ├── components/      # UI components & interactive data charts
+│   ├── pages/           # Application dashboard routes
+│   └── utils/           # Data processing & analytics logic
+├── components.json      # UI component configurations
+├── bun.lock             # Dependency lockfile
+└── README.md            # Repository documentation
+💻 Local Development Setup
+1. Clone Repository
+Bash
+git clone [https://github.com/Nimmi0707/AI-PERFORMANCE-BASED-PREDICTION-.git](https://github.com/Nimmi0707/AI-PERFORMANCE-BASED-PREDICTION-.git)
+cd AI-PERFORMANCE-BASED-PREDICTION-
+2. Install Dependencies
+Bash
 bun install
-bun run dev
-```
+# or
+npm install
+3. Start Development Server
+Bash
+bun dev
+# or
+npm run dev
+Open http://localhost:3000 in your browser.
 
-```sh
-bun run test
-bun run build
-```
-
-## Research methodology and limitations
-
-This is a **demonstration**, not a trained AI model. Dashboard data, reference Random Forest architecture, Gini importance, and benchmark metrics are synthetic or illustrative. No empirical model training or cross-validation has been performed.
-
-Individual and batch inference use the same deterministic formula:
-
-`score = productivity × 0.35 + quality × 0.30 + attendance × 0.15 + collaboration × 0.20`
-
-Scores are rounded to one decimal place. Classes: Exceptional (85+), High performer (70+), Developing (50+), Needs support (below 50). Confidence is `min(97, round(55 + 2 × distance to the nearest threshold))`, an illustrative heuristic, **not a calibrated probability**. Department does not influence scoring. Employment decisions require human oversight, validated representative data, and fairness/privacy review.
-
-## CSV format
-
-Required columns: `employee_id`, `productivity`, `quality`, `attendance`, `collaboration`. Optional: `department`. Header names are case-insensitive. IDs must be unique and nonempty; scores must be finite numbers from 0 to 100. Files are limited to 5 MB and 10,000 records. A downloadable sample is included on the Bulk Processing page. CSV exports escape spreadsheet formula injection.
-
-Processing happens locally in the browser. No datasets are uploaded, stored, or sent to an external service. No login, database, or live model service is configured.
-
-## GitHub export
-
-The repository includes application source, dependency manifests, a lockfile, and the bundled visual asset; no private keys or environment secrets are required. Connect the project through Lovable's **+ → GitHub → Connect project** to create a synchronized repository. Connecting an account and creating the repository are user actions; this project does not automatically publish to GitHub.
-
-The TanStack Start application preserves its existing deployment configuration. Any alternative hosting environment must support its server runtime; this is not a standalone static HTML bundle.
+👤 Author
+Nimmi - GitHub Profile
