@@ -25,7 +25,7 @@ export function inferCsv(text: string): BatchRow[] {
   if (parsed.data.length > 10000) throw new Error('Please upload 10,000 records or fewer.');
   const ids = new Set<string>();
   return parsed.data.map((row, i) => {
-    const id = row.employee_id?.trim();
+    const id = row['employee_id']?.trim();
     if (!id || ids.has(id)) throw new Error(`Row ${i + 2}: employee ID is missing or duplicated.`);
     ids.add(id);
     const features: Features = { productivity: 0, quality: 0, attendance: 0, collaboration: 0 };
@@ -35,7 +35,7 @@ export function inferCsv(text: string): BatchRow[] {
       if (!raw || !Number.isFinite(value) || value < 0 || value > 100) throw new Error(`Row ${i + 2}: ${f.key} must be a number from 0 to 100.`);
       features[f.key] = value;
     }
-    return { employee_id: id, department: row.department?.trim() || 'Unspecified', ...evaluate(features) };
+    return { employee_id: id, department: row['department']?.trim() || 'Unspecified', ...evaluate(features) };
   });
 }
 export function downloadCsv(filename: string, content: string | BatchRow[]) {
